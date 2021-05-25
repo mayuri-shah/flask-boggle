@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section id = "boggle">
+    <table id="board">
+        <tbody>
+            {% for row in board %}
+            <tr>
+                {% for col in row %}
+                <td>{{ col }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+    <p>High Score : {{ highscore }}</p>
+    <p>nplays: {{ nplays }}</p>
+
+    <p>
+        score:<b class="score">0</b>
+        Seconds Left:<b class ="timer"></b>
+    </p>
+
+    <form method="POST" class="add-word">
+        <input type = text name = "word" class="word" placeholder="Enter word">
+        <button>submit</button>
+    </form>
+
+    <p>Show valid Words</p>
+    <ul class = "words">
+
+    </ul>
+    <p class="msg"></p>
+</section>
+    <script src="http://unpkg.com/jquery"></script>
+    <script src="https://unpkg.com/axios@0.19.0/dist/axios.js"></script>
+    <script src="/static/boggle.js"></script>
+    <script>
+      let game = new BoggleGame("boggle", 60);
+    </script>
+</body>
+</html>
